@@ -1,0 +1,8 @@
+- Estilo: ilustração 3D estilo cartoon, cantos arredondados, acabamento suave e brilhante.
+- Paleta: fundo em degradê de azul-marinho (#0B1F3A) para roxo (#4B2A7B); destaques em amarelo (#FFC93C).
+- Composição: personagem central ocupando cerca de 60% da altura, levemente abaixo do centro.
+- Título: no topo, centralizado, fonte sans-serif extra bold, branca, em caixa alta.
+- Subtítulo: logo abaixo do título, fonte sans-serif regular, amarela.
+- Logo: no canto inferior direito, com margem igual nos dois lados.
+- Iluminação: luz de recorte (rim light) amarela atrás do personagem, sombra suave no chão.
+- Fundo: partículas brilhantes discretas e um círculo de luz atrás do personagem.
