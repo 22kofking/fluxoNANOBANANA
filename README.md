@@ -8,7 +8,7 @@ Fluxo para gerar posts com a **mesma identidade visual** no Nano Banana (Google 
 | **NOME DA CASA** | `TUCANOBET.COM` (a logo no canto superior esquerdo) |
 | **PERSONAGEM PRINCIPAL** | o dragão dourado à direita |
 
-Todo o resto fica travado: cenário tropical, moedas, barras de ouro, caça-níquel, cores, fontes, luz e posições.
+Todo o resto fica travado: cenário tropical, moedas, barras de ouro, caça-níquel, cores, fontes, luz e posições. Todo post também ganha o selo **+18** no canto superior direito (círculo preto, borda amarela, texto branco).
 
 ![post modelo](referencias/modelo.webp)
 
@@ -106,6 +106,7 @@ Para gastar os créditos da sua assinatura do Flow, o Claude precisa operar o si
 
 - **Personagem novo em duas etapas.** Gere primeiro só o personagem no estilo do post (fundo liso), aprove, salve em `referencias/personagens/` e use em `personagem_ref`. Assim o mesmo personagem sai idêntico em vários posts.
 - **Logo 100% fiel.** A IA às vezes deforma levemente logos detalhadas. Se precisar de perfeição, aplique a logo original por cima depois, no Canva/Photoshop, sempre na mesma posição.
+- **Selo +18 no post modelo.** O post modelo atual não tem o selo, então o prompt pede para adicioná-lo. Quando sair um post com o selo do jeito que você quer, troque o `referencias/modelo.webp` por ele: o selo passa a ser copiado junto com o resto e sai ainda mais consistente.
 - **Textos curtos.** O destaque com 1 a 3 palavras e o complemento com até 5 palavras saem com muito menos erros. Confira sempre a acentuação.
 - **Um post modelo por formato.** Para feed (1:1) ou stories (9:16), crie um modelo nesse formato e use `--modelo-ref referencias/modelo-stories.webp`, porque o layout muda.
 - **Mude só a planilha.** Para não perder a identidade, não edite o prompt-mestre nem o DNA entre campanhas.

@@ -12,7 +12,10 @@ TROQUE APENAS ESTES 3 BLOCOS:
 
 3. PERSONAGEM PRINCIPAL: substitua o personagem principal da Imagem 1 por {PERSONAGEM}{REF_PERSONAGEM}. Ele ocupa a mesma posição, o mesmo tamanho e a mesma área da composição que o personagem original, com o mesmo estilo de render, brilho e iluminação da Imagem 1, cercado pelos mesmos elementos de prêmio.
 
+ADICIONE SEMPRE (mesmo que não exista na Imagem 1):
+- O selo de idade "+18" no canto superior direito, exatamente como descrito acima: círculo pequeno, fundo preto, borda amarela, texto "+18" em branco, legível e sem nada por cima.
+
 REGRAS:
-- Não adicione nenhum outro texto, marca d'água, selo ou elemento que não exista na Imagem 1.
+- Além do selo "+18", não adicione nenhum outro texto, marca d'água, selo ou elemento que não exista na Imagem 1.
 - Respeite letra por letra a ortografia e a acentuação em português dos textos entre aspas.
 - Proporção final da imagem: {PROPORCAO}.
