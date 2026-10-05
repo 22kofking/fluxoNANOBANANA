@@ -98,9 +98,20 @@ python3 fluxo.py imagens campanhas/exemplo.csv
 
 Os nomes dos modelos mudam com o tempo: confira o atual no Google AI Studio e passe com `--modelo` ou na variável `NANO_BANANA_MODEL`.
 
-### Opção B: o Claude usa o próprio site do Flow no seu computador
+### Opção B: o Claude usa o próprio site do Flow
 
-Para gastar os créditos da sua assinatura do Flow, o Claude precisa operar o site no **seu navegador, logado na sua conta Google**. Isso só funciona numa sessão rodando no seu computador: o app **Claude Desktop** ou a extensão **Claude in Chrome**. Nessa sessão, peça algo como *"abra o Flow e gere o post `giros-gratis` usando o prompt e as imagens de `saida/exemplo/`"*. É mais lento e menos previsível que a Opção A, porque depende de cliques na interface.
+Usa os créditos da sua assinatura do Flow. O Claude opera o site num navegador **no seu computador, logado na sua conta Google**, seguindo o roteiro [`FLOW.md`](FLOW.md). Depois de configurar, você manda o pedido (até pelo celular) e ele gera, confere e te entrega.
+
+Configuração (uma vez):
+
+1. Instale o **Claude Desktop** no computador e entre na sua conta (planos Pro, Max, Team ou Enterprise).
+2. Em **Settings > Cowork > Preferred browser**, escolha **Built-in browser**. Se essa opção ainda não aparecer para você, instale a extensão **Claude in Chrome** pela Chrome Web Store e use o Chrome.
+3. Baixe este repositório e descompacte numa pasta do computador:
+   <https://github.com/22kofking/fluxoNANOBANANA/archive/refs/heads/claude/gifted-faraday-oo3e8r.zip>
+4. No navegador que o Claude vai usar, entre na sua conta Google, abra o Flow e faça a preparação descrita em [`FLOW.md`](FLOW.md): projeto `TUCANOBET` com os ingredientes `MODELO` e `LOGO TUCANOBET`.
+5. Abra uma tarefa no **Cowork**, conecte a pasta do repositório e mande: *"siga o FLOW.md e gere: GIROS GRÁTIS | TODA SEXTA, personagem um tigre dourado"*.
+
+O computador precisa ficar ligado com o Claude Desktop aberto e online. Com isso, dá para continuar mandando pedidos pelo app do Claude no celular. É mais lento que a Opção A (cada post leva alguns minutos de cliques) e, se o Google mudar a interface do Flow, o Claude pode precisar de ajuda num passo.
 
 ## Dicas para consistência máxima
 

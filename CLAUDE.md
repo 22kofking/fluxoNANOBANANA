@@ -10,7 +10,8 @@ Gera posts com a identidade visual fixa de `referencias/modelo.webp`, trocando s
    - **PERSONAGEM PRINCIPAL**: descrição curta e visual (ex.: "um tigre dourado saltando com as garras à mostra").
 2. Acrescente uma linha em `campanhas/pedidos.csv` com um `id` curto em kebab-case e `proporcao` `21:9`, salvo pedido diferente.
 3. Gere:
+   - Se você tiver acesso ao navegador do usuário (navegador embutido do Claude Desktop ou Claude in Chrome): siga o `FLOW.md`.
    - Se `GEMINI_API_KEY` estiver definida: `pip install -q google-genai` (se faltar) e
      `python3 fluxo.py imagens campanhas/pedidos.csv --ids <id>`. Envie a imagem de `saida/pedidos/` ao usuário com SendUserFile.
-   - Se não estiver, ou se a API estiver bloqueada pela rede: rode `python3 fluxo.py prompts campanhas/pedidos.csv --ids <id>`, entregue o prompt e a ordem das imagens para colar no Flow, e explique a configuração da seção "Pedir para o Claude gerar" do README.
+   - Se não estiver, ou se a API estiver bloqueada pela rede: rode `python3 fluxo.py prompts campanhas/pedidos.csv --ids <id>`, entregue o prompt e a ordem das imagens para colar no Flow, e explique as opções da seção "Pedir para o Claude gerar" do README.
 4. Não edite `prompts/prompt-mestre.txt` nem `identidade/dna-visual.txt` sem o usuário pedir: eles são a identidade visual.
