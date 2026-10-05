@@ -73,7 +73,7 @@ O modelo é o mesmo do Flow, mas acessado pela API. Depois de configurar uma vez
 
 Configuração (uma vez):
 
-1. Crie uma chave de API em <https://aistudio.google.com/apikey>. A geração pela API é cobrada pelo Google por imagem, separada da assinatura do Flow.
+1. Crie uma chave de API em <https://aistudio.google.com/apikey>. A geração de imagens pela API é cobrada pelo Google por imagem, separada da assinatura do Flow; veja abaixo como usar os créditos grátis do Google Cloud.
 2. No Claude Code na web, abra o menu do ambiente na barra de título da sessão e clique em **Edit**:
    - em **Environment variables**, adicione `GEMINI_API_KEY=<sua chave>` (nunca cole a chave no chat);
    - em **Network access**, escolha **Custom** e adicione `generativelanguage.googleapis.com` em *Allowed domains*, mantendo a lista padrão de gerenciadores de pacotes.
@@ -97,6 +97,31 @@ python3 fluxo.py imagens campanhas/exemplo.csv
 | `--modelo NOME` | troca o modelo (padrão: `gemini-3-pro-image-preview`, o Nano Banana Pro) |
 
 Os nomes dos modelos mudam com o tempo: confira o atual no Google AI Studio e passe com `--modelo` ou na variável `NANO_BANANA_MODEL`.
+
+#### Custo e como gerar de graça
+
+Os modelos de imagem (Nano Banana, Nano Banana 2 e Nano Banana Pro) **não fazem parte da camada grátis da API do Gemini**: sem faturamento ativo, a chave do AI Studio devolve erro ao gerar imagens. Preços de referência por imagem: cerca de US$ 0,04 (Nano Banana), US$ 0,07 (Nano Banana 2, 1K) e US$ 0,13 (Nano Banana Pro, até 2K). Confira os valores atuais em <https://ai.google.dev/gemini-api/docs/pricing>.
+
+| Caminho | Grátis? | Como fica |
+|---|---|---|
+| API do Gemini (chave do AI Studio) | Não | Paga por imagem, automático |
+| **Vertex AI com o teste gratuito do Google Cloud** | **Sim, por 90 dias** | US$ 300 em créditos, ~2.000 posts com o Pro, automático |
+| App Gemini ou AI Studio no navegador | Sim, com limite diário | Manual: cole o prompt de `fluxo.py prompts` e anexe as imagens |
+
+**Usar os US$ 300 do Google Cloud (Vertex AI):**
+
+1. Ative o teste gratuito em <https://cloud.google.com/free>. O Google pede um cartão só para verificação e não cobra nada quando o teste acaba, a não ser que você ative a conta paga.
+2. Crie um projeto e ative a **Vertex AI API** nele.
+3. Crie uma **chave de API do Vertex AI** no console do projeto.
+4. Configure as variáveis (no ambiente do Claude Code ou no seu computador):
+   ```bash
+   GOOGLE_GENAI_USE_VERTEXAI=true
+   GOOGLE_API_KEY=<chave do Vertex AI>
+   ```
+   No seu computador, em vez da chave, também dá para usar `gcloud auth application-default login` com `GOOGLE_CLOUD_PROJECT=<id do projeto>`.
+5. No Claude Code, libere `aiplatform.googleapis.com` em *Network access* (no lugar de `generativelanguage.googleapis.com`).
+
+O comando é o mesmo: `python3 fluxo.py imagens campanhas/exemplo.csv`. Os créditos do teste não valem para a chave do AI Studio, só para o Vertex AI.
 
 ### Opção B: o Claude usa o próprio site do Flow
 

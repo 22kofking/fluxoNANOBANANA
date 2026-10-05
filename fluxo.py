@@ -139,8 +139,9 @@ def cmd_imagens(args):
         from google.genai import types
     except ImportError:
         sys.exit("Instale o SDK do Gemini primeiro: pip install google-genai")
-    if not (os.environ.get("GEMINI_API_KEY") or os.environ.get("GOOGLE_API_KEY")):
-        sys.exit("Defina a variável GEMINI_API_KEY com sua chave do Google AI Studio.")
+    usa_vertex = os.environ.get("GOOGLE_GENAI_USE_VERTEXAI", "").lower() in ("true", "1")
+    if not usa_vertex and not (os.environ.get("GEMINI_API_KEY") or os.environ.get("GOOGLE_API_KEY")):
+        sys.exit("Defina GEMINI_API_KEY (chave do Google AI Studio) ou configure o Vertex AI (veja o README).")
 
     client = genai.Client()
     pasta = pasta_saida(args)
