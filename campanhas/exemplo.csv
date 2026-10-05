@@ -1,4 +1,4 @@
-id;frase_principal;frase_secundaria;logo;personagem;personagem_ref;proporcao
-post-01;SEU NEGÓCIO NO TOPO;Conheça nossos planos;logos/marca-exemplo.png;uma coruja simpática de óculos redondos;;4:5
-post-02;VELOCIDADE QUE IMPRESSIONA;Entrega em até 24h;logos/marca-exemplo.png;um guepardo em pose de corrida;personagens/guepardo.png;4:5
-post-03;FORÇA PARA CRESCER;;logos/outra-marca.png;um urso pardo sorridente de braços cruzados;;1:1
+id;texto_central;nome_da_casa;personagem;personagem_ref;proporcao
+login-diario;LOGIN DIÁRIO | PRÊMIOS TODOS OS DIAS;TUCANOBET.COM;um dragão chinês dourado e preto rugindo e soltando fogo dourado;;21:9
+giros-gratis;GIROS GRÁTIS | TODA SEXTA-FEIRA;TUCANOBET.COM;um tigre dourado saltando com as garras à mostra;;21:9
+cashback;CASHBACK SEMANAL | RECEBA DE VOLTA TODA SEGUNDA;TUCANOBET.COM;uma onça-pintada dourada rugindo;;21:9

@@ -1,8 +1,10 @@
-- Estilo: ilustração 3D estilo cartoon, cantos arredondados, acabamento suave e brilhante.
-- Paleta: fundo em degradê de azul-marinho (#0B1F3A) para roxo (#4B2A7B); destaques em amarelo (#FFC93C).
-- Composição: personagem central ocupando cerca de 60% da altura, levemente abaixo do centro.
-- Título: no topo, centralizado, fonte sans-serif extra bold, branca, em caixa alta.
-- Subtítulo: logo abaixo do título, fonte sans-serif regular, amarela.
-- Logo: no canto inferior direito, com margem igual nos dois lados.
-- Iluminação: luz de recorte (rim light) amarela atrás do personagem, sombra suave no chão.
-- Fundo: partículas brilhantes discretas e um círculo de luz atrás do personagem.
+- Formato: banner horizontal panorâmico (21:9).
+- Estilo: arte promocional de cassino/slot ultradetalhada, render 3D hiper-realista, cores muito saturadas, muito brilho dourado, faíscas e bokeh.
+- Cenário: paraíso tropical brasileiro em dia de sol. Ao fundo, no centro, mar azul-turquesa, praia e uma montanha verde coberta de mata, céu azul com nuvens brancas. Folhagens de selva (costela-de-adão, palmeiras, samambaias) e flores de hibisco vermelhas emolduram a lateral esquerda, o canto inferior esquerdo e o canto inferior direito.
+- Logo (nome da casa): no canto superior esquerdo, pequena, com margem curta em relação ao topo e à lateral.
+- Texto central: alinhado à esquerda, na metade esquerda da imagem, abaixo da logo.
+  - Linha de destaque: fonte sans-serif geométrica extra bold (estilo Montserrat Black), caixa alta, amarelo vivo (#FFF000), em duas linhas grandes empilhadas, com sombra preta suave.
+  - Linha de complemento: mesma família de fonte em bold, caixa alta, branco (#FFFFFF), com cerca de 1/3 do tamanho do destaque, em até duas linhas logo abaixo dele, com sombra preta suave.
+- Personagem principal: na metade direita, ocupando quase toda a altura da imagem, em pose dinâmica e épica, cheio de energia, com detalhes dourados reluzentes.
+- Elementos de prêmio ao redor do personagem: explosão de moedas de ouro com cifrão ($), barras de ouro, notas de dinheiro voando, envelopes vermelhos com detalhes dourados e uma máquina caça-níquel com "777" atrás do personagem.
+- Iluminação: luz quente dourada saindo do personagem, raios de luz, faíscas e partículas brilhantes. O lado esquerdo, onde fica o texto, é mais escuro e limpo para garantir a leitura.

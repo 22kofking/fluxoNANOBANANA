@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Fluxo Nano Banana: mesma identidade visual, trocando só frases, logo e personagem.
+"""Fluxo Nano Banana: mesma identidade visual, trocando só TEXTO CENTRAL, NOME DA CASA e PERSONAGEM PRINCIPAL.
 
 Uso:
   python fluxo.py prompts campanhas/exemplo.csv   # gera os prompts para colar no Flow
@@ -15,8 +15,18 @@ from pathlib import Path
 
 RAIZ = Path(__file__).resolve().parent
 REFERENCIAS = RAIZ / "referencias"
-PROPORCAO_PADRAO = "4:5"
+EXTENSOES = (".png", ".jpg", ".jpeg", ".webp")
+PROPORCAO_PADRAO = "21:9"
 MODELO_PADRAO = os.environ.get("NANO_BANANA_MODEL", "gemini-3-pro-image-preview")
+
+
+def achar_imagem(pasta, nome):
+    """Procura pasta/nome com qualquer extensão de imagem aceita."""
+    for extensao in EXTENSOES:
+        caminho = pasta / f"{nome}{extensao}"
+        if caminho.is_file():
+            return caminho
+    return None
 
 
 def ler_campanha(caminho_csv):
@@ -32,31 +42,52 @@ def montar_peca(linha, template, dna, modelo_ref):
     erros = []
     if not linha.get("id"):
         erros.append("coluna 'id' vazia")
-    if not linha.get("frase_principal"):
-        erros.append("coluna 'frase_principal' vazia")
-    if not linha.get("logo"):
-        erros.append("coluna 'logo' vazia")
+    if not linha.get("texto_central"):
+        erros.append("coluna 'texto_central' vazia")
+    if not linha.get("nome_da_casa"):
+        erros.append("coluna 'nome_da_casa' vazia")
     if not linha.get("personagem") and not linha.get("personagem_ref"):
         erros.append("preencha 'personagem' ou 'personagem_ref'")
 
-    imagens = [modelo_ref, REFERENCIAS / linha.get("logo", "")]
-    personagem = linha.get("personagem") or "o personagem da IMAGEM 3"
+    imagens = [modelo_ref]
+
+    # TEXTO CENTRAL: "DESTAQUE | COMPLEMENTO"
+    destaque, _, complemento = linha.get("texto_central", "").partition("|")
+    textos = [f'   - Linha de destaque (a linha grande da Imagem 1): "{destaque.strip()}"']
+    if complemento.strip():
+        textos.append(f'   - Linha de complemento (a linha menor da Imagem 1): "{complemento.strip()}"')
+    else:
+        textos.append("   - Linha de complemento: nenhuma (remova a linha menor da Imagem 1 e deixe o espaço limpo)")
+
+    # NOME DA CASA: usa referencias/logos/<nome em minúsculas>.png se existir
+    casa = linha.get("nome_da_casa", "")
+    logo = achar_imagem(REFERENCIAS / "logos", casa.lower()) if casa else None
+    if logo:
+        imagens.append(logo)
+        nome_da_casa = (
+            f'a logo deve ser a da IMAGEM {len(imagens)} (marca "{casa}"), no mesmo lugar e no mesmo '
+            "tamanho da logo da Imagem 1. Reproduza a logo fielmente: não redesenhe, não altere cores, "
+            "proporções, letras ou símbolos."
+        )
+    else:
+        nome_da_casa = (
+            f'a logo deve exibir o nome "{casa}", escrito exatamente assim, no mesmo estilo, cores, '
+            "contorno, posição e tamanho da logo da Imagem 1. Não use o símbolo nem o nome da marca original."
+        )
+
+    # PERSONAGEM PRINCIPAL: descrição em texto e/ou imagem de referência
     ref_personagem = ""
     if linha.get("personagem_ref"):
         imagens.append(REFERENCIAS / linha["personagem_ref"])
-        ref_personagem = " (use a IMAGEM 3 como referência exata da aparência do personagem)"
-
-    textos = [f'   - Título: "{linha.get("frase_principal", "")}"']
-    if linha.get("frase_secundaria"):
-        textos.append(f'   - Subtítulo: "{linha["frase_secundaria"]}"')
-    else:
-        textos.append("   - Subtítulo: nenhum (remova o subtítulo da Imagem 1 e deixe o espaço limpo)")
+        ref_personagem = f" (use a IMAGEM {len(imagens)} como referência exata da aparência do personagem)"
+    personagem = linha.get("personagem") or "este personagem"
 
     prompt = (
         template.replace("{DNA_VISUAL}", dna.strip())
+        .replace("{TEXTO_CENTRAL}", "\n".join(textos))
+        .replace("{NOME_DA_CASA}", nome_da_casa)
         .replace("{PERSONAGEM}", personagem)
         .replace("{REF_PERSONAGEM}", ref_personagem)
-        .replace("{TEXTOS}", "\n".join(textos))
         .replace("{PROPORCAO}", linha.get("proporcao") or PROPORCAO_PADRAO)
     )
     return prompt, imagens, erros
@@ -164,8 +195,9 @@ def main():
 
     comum = argparse.ArgumentParser(add_help=False)
     comum.add_argument("csv", help="planilha da campanha (ex.: campanhas/exemplo.csv)")
-    comum.add_argument("--modelo-ref", default=str(REFERENCIAS / "modelo.png"),
-                       help="post modelo com a identidade visual aprovada (padrão: referencias/modelo.png)")
+    modelo_ref = achar_imagem(REFERENCIAS, "modelo") or REFERENCIAS / "modelo.png"
+    comum.add_argument("--modelo-ref", default=str(modelo_ref),
+                       help="post modelo com a identidade visual aprovada (padrão: referencias/modelo.*)")
     comum.add_argument("--template", default=str(RAIZ / "prompts" / "prompt-mestre.txt"))
     comum.add_argument("--dna", default=str(RAIZ / "identidade" / "dna-visual.txt"))
     comum.add_argument("--saida", default=str(RAIZ / "saida"))

@@ -1,16 +1,16 @@
-Use a IMAGEM 1 (o post modelo) como referência absoluta de identidade visual. Crie uma nova peça idêntica a ela em estilo, layout, paleta de cores, tipografia, iluminação, fundo, enquadramento e posição de cada elemento.
+Use a IMAGEM 1 (o post modelo) como referência absoluta de identidade visual. Crie uma nova peça idêntica a ela em estilo, layout, paleta de cores, tipografia, iluminação, cenário, enquadramento e posição de cada elemento.
 
 MANTENHA EXATAMENTE IGUAL À IMAGEM 1:
 {DNA_VISUAL}
 
-TROQUE APENAS ESTES 3 ELEMENTOS:
+TROQUE APENAS ESTES 3 BLOCOS:
 
-1. PERSONAGEM CENTRAL: substitua o personagem da Imagem 1 por {PERSONAGEM}{REF_PERSONAGEM}. Ele ocupa a mesma posição, o mesmo tamanho e a mesma área da composição que o personagem original, e é desenhado no mesmo estilo de ilustração, traço, textura e iluminação da Imagem 1.
+1. TEXTO CENTRAL: substitua os textos da Imagem 1 pelos textos abaixo, escritos exatamente como estão entre aspas, com a mesma fonte, cor, peso, tamanho, alinhamento e posição dos textos originais:
+{TEXTO_CENTRAL}
 
-2. LOGO: substitua a logo da Imagem 1 pela logo da IMAGEM 2 (a logo), no mesmo lugar e no mesmo tamanho. Reproduza a logo fielmente: não redesenhe, não altere cores, proporções, letras ou símbolos.
+2. NOME DA CASA: {NOME_DA_CASA}
 
-3. TEXTOS: substitua os textos da Imagem 1 pelos textos abaixo, escritos exatamente como estão entre aspas, com a mesma fonte, cor, peso, tamanho e posição dos textos originais:
-{TEXTOS}
+3. PERSONAGEM PRINCIPAL: substitua o personagem principal da Imagem 1 por {PERSONAGEM}{REF_PERSONAGEM}. Ele ocupa a mesma posição, o mesmo tamanho e a mesma área da composição que o personagem original, com o mesmo estilo de render, brilho e iluminação da Imagem 1, cercado pelos mesmos elementos de prêmio.
 
 REGRAS:
 - Não adicione nenhum outro texto, marca d'água, selo ou elemento que não exista na Imagem 1.
